@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 namespace primeiraApi.Models
 {
-    // criando a classe Category 
+    // criando a classe Category, para o EFCore representa uma Tabela
     public class Category
     {
         // Métodos têm parênteses
