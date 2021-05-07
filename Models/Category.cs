@@ -36,6 +36,7 @@ namespace primeiraApi.Models
             title = value;
         }
         
+        // criando a propriedade Quantidade, para o EFCore representa a coluna na tabela de Category; 
         public int Quantidade { get; set; }
 
     
