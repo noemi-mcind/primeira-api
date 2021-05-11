@@ -17,10 +17,12 @@ namespace primeiraApi.Controllers
         [Route("criar-varios")]
         public ActionResult<List<Product>> CriarVarios([FromServices] DataContext context)
         {
-            // criar 3 produtos e adcionar no BD.
+            // criar 3 produtos e adicionar no BD.
+
+            // instanciando um objeto a partir da classe Product,
+            // para o EFCore representa as linhas das colunas da tabela Product.
             var product1 = new Product();
 
-            // instanciando
             product1.Id = 1;
             product1.Title = "Maçã";
             product1.Price = 1.20m;

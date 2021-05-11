@@ -50,7 +50,7 @@ namespace primeiraApi.Models
         [Range(1, int.MaxValue, ErrorMessage = "Categoria inválida")]
         public int CategoryId  { get; set; }
 
-        // Criando a propriedade        
+        // Criando a propriedade Category, do tipo Category, para o EFCore representa uma coluna da tabela Product;      
         public Category Category { get; set; }
     }
 
