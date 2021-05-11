@@ -7,11 +7,45 @@ using primeiraApi.Data;
 using primeiraApi.Models;
 
 namespace primeiraApi.Controllers
-{   
+{
     [ApiController]
     [Route("v1/products")]
     public class ProductController : ControllerBase
     {
+
+        [HttpPost]
+        [Route("criar-varios")]
+        public ActionResult<List<Product>> CriarVarios([FromServices] DataContext context)
+        {
+            // criar 3 produtos e adcionar no BD.
+            var product1 = new Product();
+
+            // instanciando
+            product1.Id = 1;
+            product1.Title = "Maçã";
+            product1.Price = 1.20m;
+
+            var product2 = new Product();
+
+            product2.Id = 2;
+            product2.Title = "Pera";
+            product2.Price = 3.50m;
+
+            var product3 = new Product();
+            
+            product3.Id = 3;
+            product3.Title = "Uva";
+            product3.Price = 2.25m;
+            
+            context.Products.Add(product1);
+            context.Products.Add(product2);
+            context.Products.Add(product3);
+
+            context.SaveChanges();
+            
+            return Ok(new { });
+        }
+
         // Atributo ou Annotation
         [HttpGet]
         [Route("")]
@@ -22,7 +56,7 @@ namespace primeiraApi.Controllers
         }
 
         // atributo ou annotation
-        [HttpGet] 
+        [HttpGet]
         [Route("{id:int}")]
         public async Task<ActionResult<Product>> GetById([FromServices] DataContext context, int id)
         {
@@ -30,7 +64,7 @@ namespace primeiraApi.Controllers
             .AsNoTracking()
             .FirstOrDefaultAsync(x => x.Id == id);
             return product;
-        } 
+        }
 
         // atributo ou annotation
         [HttpGet]
@@ -42,15 +76,13 @@ namespace primeiraApi.Controllers
             .AsNoTracking()
             .Where(x => x.CategoryId == id)
             .ToListAsync();
-            return products; 
+            return products;
         }
-        
+
         // atributo ou annotations
         [HttpPost]
         [Route("")]
-        public async Task<ActionResult<Product>> Post(
-            [FromServices] DataContext context,
-            [FromBody] Product model)
+        public async Task<ActionResult<Product>> Post([FromServices] DataContext context, [FromBody] Product model)
         {
 
             // instanciando um objeto do tipo Product, ou seja, a partir da classe Product; 
@@ -67,7 +99,7 @@ namespace primeiraApi.Controllers
             // adicionando  o produto manual no Dbset Products, que está dentro do contexto
             context.Products.Add(produtoAdicionadoManualmente);
 
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 context.Products.Add(model);
 
