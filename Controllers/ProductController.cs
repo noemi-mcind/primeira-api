@@ -12,7 +12,12 @@ namespace primeiraApi.Controllers
     [Route("v1/products")]
     public class ProductController : ControllerBase
     {
+        private const int V = 1;
+        private const int V1 = 2;
+        private const int V2 = 3;
 
+        // Verbo HTTP ou Método HTTP, são: GET, POST, PUT, DELETE 
+        // Atributo ou Annotation
         [HttpPost]
         [Route("criar-varios")]
         public ActionResult<List<Product>> CriarVarios([FromServices] DataContext context)
@@ -26,18 +31,21 @@ namespace primeiraApi.Controllers
             product1.Id = 1;
             product1.Title = "Maçã";
             product1.Price = 1.20m;
+            product1.CategoryId = V;
 
             var product2 = new Product();
 
             product2.Id = 2;
             product2.Title = "Pera";
             product2.Price = 3.50m;
+            product2.CategoryId = V1;
 
             var product3 = new Product();
             
             product3.Id = 3;
             product3.Title = "Uva";
             product3.Price = 2.25m;
+            product3.CategoryId = V2;
             
             context.Products.Add(product1);
             context.Products.Add(product2);

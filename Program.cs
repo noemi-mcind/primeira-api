@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace primeiraApi
 {
+    // criando a classe Program, para o EFCore representa a inicialização da Api. 
     public class Program
     {
         public static void Main(string[] args)
