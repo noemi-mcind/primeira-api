@@ -19,20 +19,34 @@ namespace primeiraApi.Controllers
         {
             // instanciando um objeto a partir da classe Category,
             // para o EFCore representa as linhas das colunas da tabela Category.
-            var categories = new Category();
+            var categories1 = new Category();
 
-            categories.Id = 1;
-            categories.SetTitle("");
-            categories.Quantidade = 1;
+            categories1.Id = 1;
+            categories1.SetTitle("Frutas");
+            categories1.Quantidade = 1;
 
-            categories.Id = 2;
-            categories.Quantidade = 2;
+            var categories2 = new Category();
 
-            categories.Id = 3;
-            categories.Quantidade = 3;
+            categories2.Id = 2;
+            categories2.SetTitle("Cosméticos");
+            categories2.Quantidade = 2;
+
+            var categories3 = new Category();
+
+            categories3.Id = 3;
+            categories3.SetTitle("Eletrônicos");
+            categories3.Quantidade = 3;
             
-            categories.Id = 4;
-            categories.Quantidade = 4;
+            var categories4 = new Category();
+
+            categories4.Id = 4;
+            categories4.SetTitle("Diversos");
+            categories4.Quantidade = 4;
+
+            context.Categories.Add(categories1);
+            context.Categories.Add(categories2);
+            context.Categories.Add(categories3);
+            context.Categories.Add(categories4);
 
             context.SaveChanges();
 
