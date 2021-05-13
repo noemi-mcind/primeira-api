@@ -13,7 +13,6 @@ namespace primeiraApi.Models
 
         // Required é um atributo que significa obrigatório
         // Se caso não for preenchido irá dar uma Mensagem de Erro(Este campo é obrigatório);
-        // criando a propriedade Name, para o EFCore representa uma coluna da tabela User;
         [Required(ErrorMessage = "Este campo é obrigatório")]
 
         // MaxLength é um atributo que significa comprimento máximo,
