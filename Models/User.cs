@@ -6,7 +6,7 @@ namespace primeiraApi.Models
     public class User
     {
         // criando a propriedade Id, para  o EFCore representa uma coluna da tabela User;
-        // e colocando o Atributo/Annotation [Key],;
+        // e colocando o Atributo/Annotation [Key];
         // pois para o EFCORE ela representa uma chave, ela é única;
         [Key]
         public int Id { get; set; }
